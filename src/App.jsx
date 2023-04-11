@@ -1,3 +1,5 @@
+import axios from "axios";
+
 function Header() {
   return (
     <header>
@@ -48,23 +50,17 @@ function Footer() {
 }
 
 function Content() {
-  let posts = [
-    {
-      id: 1,
-      title: "Synergized tangible paradigm",
-      body: "rony roof authentic gluten-free chillwave helvetica. Celiac salvia pickled artisan. ",
-      image: "https://i.picsum.photos/id/302/200/300.jpg?hmac=b5e6gUSooYpWB3rLAPrDpnm8PsPb84p_NXRwD-DK-1I",
-    },
-    {
-      id: 1,
-      title: "Multi-layered holistic implementation",
-      body: "3 wolf moon art party viral. Selvage stumptown kale chips five dollar toast. Artisan",
-      image: "https://i.picsum.photos/id/131/200/300.jpg?hmac=9q7mRSOguNBFGg_gPPRKlfjNINGjXWeDBTYPP1_gEas",
-    },
-  ];
+  let posts = [];
+  const handleIndexPosts = () => {
+    axios.get("http://localhost:3000/posts.json").then((response) => {
+      console.log(response.data);
+      posts = response.data;
+    });
+  };
   return (
     <div>
       <PostsNew />
+      <button onClick={handleIndexPosts}>Load Posts</button>
       <PostsIndex posts={posts} />
     </div>
   );
