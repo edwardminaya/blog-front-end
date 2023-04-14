@@ -12,6 +12,7 @@ export function PostsNew() {
       <form action="">
         Image <input type="text" name="" id="" />
       </form>
+      <button type="submit">Create</button>
     </div>
   );
 }
