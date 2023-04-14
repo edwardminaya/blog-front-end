@@ -2,6 +2,10 @@
   width: 300px;
 }
 
+header:hover {
+  filter: blur();
+}
+
 html {
   background-color: #F6F1F1;
   scroll-behavior: smooth;
