@@ -8,6 +8,7 @@ export function PostsIndex(props) {
           <h3>{posts.title}</h3>
           <p>{posts.body}</p>
           <img src={posts.image} />
+          <button>More Info</button>
         </div>
       ))}
     </div>

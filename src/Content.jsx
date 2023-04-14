@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { PostsNew } from "./PostsNew";
 import { PostsIndex } from "./PostsIndex";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [posts, setPosts] = useState([]);
@@ -15,6 +16,9 @@ export function Content() {
   return (
     <div>
       <PostsNew />
+      <Modal show={false}>
+        <p>Test</p>
+      </Modal>
       <PostsIndex posts={posts} />
     </div>
   );
