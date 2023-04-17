@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
-  axios.defaults.headers.common["Authorization"] = "Bearer ${jwt}";
+  axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 }
 
 export function Login() {
@@ -17,16 +17,17 @@ export function Login() {
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
         console.log(response.data);
-        axios.defaults.headers.common["Autherization"] = "Bearer " + response.data.jwt;
+        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
         event.target.reset();
-        window.location.href = "/";
+        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
       .catch((error) => {
         console.log(error.response);
-        setErrors(["invalid email or password"]);
+        setErrors(["Invalid email or password"]);
       });
   };
+
   return (
     <div className="login">
       <h1>Login</h1>
@@ -35,14 +36,14 @@ export function Login() {
           <li key={error}>{error}</li>
         ))}
       </ul>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
-          email: <input type="email" />
+          Email: <input name="email" type="email" />
         </div>
         <div>
-          password: <input type="password" />
+          Password: <input name="password" type="password" />
         </div>
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
