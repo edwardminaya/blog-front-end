@@ -1,26 +1,27 @@
-export function PostsNew() {
+export function PostsNew(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handleSubmit");
+    const params = new FormData(event.target);
+    console.log("handleSubmit", params);
+    props.onCreatePost(params);
+    event.target.reset();
+  };
   return (
     <div id="posts-new">
       <h1>New post</h1>
-      <div className="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">
-          Title
-        </span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm"
-        />
-      </div>
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-        <label for="floatingTextarea">Body</label>
-      </div>
-      <form action="">
-        Image <input type="text" name="" id="" />
+      <form onSubmit={handleSubmit}>
+        <div>
+          title: <input name="title" type="text" />
+        </div>
+        <div>
+          body: <input name="body" type="text" />
+        </div>
+        <div>
+          Image <input name="image" type="text" />
+        </div>
+        <button type="submit">Create</button>
       </form>
-      <button type="submit">Create</button>
     </div>
   );
 }
