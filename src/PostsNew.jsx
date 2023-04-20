@@ -6,6 +6,7 @@ export function PostsNew(props) {
     console.log("handleSubmit", params);
     props.onCreatePost(params);
     event.target.reset();
+    window.location.href = "/";
   };
   return (
     <div id="posts-new">

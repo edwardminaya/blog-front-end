@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { About } from "./About";
 import { PostsNew } from "./PostsNew";
 import { PostsIndex } from "./PostsIndex";
 import { Modal } from "./Modal";
@@ -61,11 +63,14 @@ export function Content() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/newpost" element={<PostsNew onCreatePost={handleCreatePost} />} />
+        <Route path="/" element={<PostsIndex posts={posts} onShowPost={handleShowPost} />} />
+      </Routes>
       <LogoutLink />
-      <PostsNew onCreatePost={handleCreatePost} />
-      <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <PostShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDeletePost} />
       </Modal>

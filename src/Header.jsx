@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <header>
@@ -20,19 +22,22 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
+                <Link to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-index">
-                  All Posts
-                </a>
+                <Link to="/about">About</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-new">
-                  New Post
-                </a>
+                <Link to="/login">Login</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/signup">Signup</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/newpost">New Post</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/">All Posts</Link>
               </li>
             </ul>
           </div>
