@@ -8,7 +8,6 @@ import { Modal } from "./Modal";
 import { PostShow } from "./PostsShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
 import { PostsShowPage } from "./PostsShowPage";
 
 export function Content() {
