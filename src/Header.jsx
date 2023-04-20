@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { LogoutLink } from "./LogoutLink";
 
 export function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-*">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+          <a className="navbar-brand" href="/">
+            Blog
           </a>
           <button
             className="navbar-toggler"
@@ -38,6 +39,9 @@ export function Header() {
               </li>
               <li className="nav-item">
                 <Link to="/">All Posts</Link>
+              </li>
+              <li className="nav-item">
+                <LogoutLink />
               </li>
             </ul>
           </div>

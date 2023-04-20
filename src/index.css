@@ -10,9 +10,6 @@
   width: 300px;
 }
 
-header:hover {
-  filter: blur();
-}
 
 html {
   background-color: #F6F1F1;
@@ -34,18 +31,19 @@ h1 {
   text-align: center;
 }
 
+.button {
+  margin: 10px;
+}
+
 button {
   text-align: center;
 }
 
 img {
-  border: solid;
+  height: 300px;
+  width: auto;
 }
 
-.all-posts {
-  background-color: #146C94;
-  border-radius: 10px;
-}
 
 #posts-index {
   margin-left: 10%;
@@ -54,4 +52,15 @@ img {
 
 form {
   margin: 10px;
+}
+
+.posts {
+  margin: 10px;
+  padding: 10px;
+  border: solid;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
 }
