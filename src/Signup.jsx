@@ -15,6 +15,7 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
+        localStorage.setItem("flashMessage", "User Created!");
         window.location.href = "/";
       })
       .catch((error) => {
